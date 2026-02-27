@@ -65,7 +65,7 @@ RecentBook RecentBooksStore::getDataFromBook(std::string path) const {
   if (lastSlash != std::string::npos) {
     lastBookFileName = path.substr(lastSlash + 1);
   }
-
+  std::string nameWithoutExt = lastBookFileName.substr(0, lastBookFileName.find_last_of('.'));
   LOG_DBG("RBS", "Loading recent book: %s", path.c_str());
 
   // If epub, try to load the metadata for title/author and cover.
